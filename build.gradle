@@ -1,0 +1,123 @@
+apply plugin: 'com.android.application'
+//apply plugin: 'walle'
+//apply plugin: 'com.jakewharton.butterknife'
+
+repositories {
+    maven { url "https://jitpack.io" }
+}
+
+android {
+    compileSdkVersion COMPILE_SDK_VERSION as int
+    buildToolsVersion BUILD_T00LS_VERSION
+    defaultConfig {
+        applicationId APPLICATION_Id
+        minSdkVersion MIN_SDK_VERSION as int
+        targetSdkVersion TARGET_SDK_VERSION as int
+        versionCode VERSION_CODE as int
+        versionName VERSION_NAME
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        multiDexEnabled true
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+
+    packagingOptions {
+        exclude 'META-INF/license.txt'
+        exclude 'META-INF/notice.txt'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+    }
+
+    signingConfigs {
+        release {
+            storeFile file("manyi.keystore")
+            storePassword "manyi520"
+            keyAlias "manyi"
+            keyPassword "manyi520"
+            //v2SigningEnabled false //强制V1签名方式
+        }
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+
+        release {
+            debuggable false
+            shrinkResources true
+            zipAlignEnabled true
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile 'com.android.support:appcompat-v7:25.1.0'
+    compile 'com.android.support:recyclerview-v7:25.1.0'
+    compile "com.android.support:cardview-v7:25.1.0"
+    //compile 'com.android.support:design:25.1.0'
+    compile 'com.android.support:multidex:1.0.1'
+    testCompile 'junit:junit:4.12'
+
+    compile 'com.jakewharton:butterknife:8.5.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
+    compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.8'
+    compile 'com.pkmmte.view:circularimageview:1.1'
+
+    compile project(':FdbFramework')
+    compile project(':chatui')
+//    compile project(':map')
+//    compile project(':pay')
+//    compile project(':push')
+//    compile project(':share')
+}
+
+//walle {
+//    // 指定渠道包的输出路径
+//    apkOutputFolder = new File("${project.rootDir}/apkChannel/apk");
+//    // 定制渠道包的APK的文件名称
+//    apkFileNameFormat = 'V${versionName}-${channel}.apk';
+//    // 渠道配置文件
+//    channelFile = new File("${project.rootDir}/apkChannel/meituan/channel.txt")
+//
+//    print channelFile
+//}
+
+/**
+ * 插入加密文件
+ * @param bulidtype
+ * @return
+ */
+def encryptConfig() {
+    def env = "prod";
+    if(hasProperty("env")) {
+        env = getProperty("env");
+    }
+    println("打包接口环境："+env)
+    /**
+     * 根据build type 选择config.properties 并copy 文件到assets
+     */
+    def profile_config = "config/${env}/config.properties"
+    task configCopy(type: Copy) {
+        copy {
+            from(profile_config)
+            into('src/main/assets')
+        }
+    }
+}
+encryptConfig();
+
