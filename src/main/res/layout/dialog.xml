@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/corner_white"
+    android:layout_width="288dp"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/titleView"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/titleText"
+            tools:text="提示"
+            android:paddingLeft="10dp"
+            android:gravity="left|center_vertical"
+            android:textColor="@color/color_007AFF"
+            android:textSize="16sp"
+            android:layout_width="match_parent"
+            android:layout_height="40dp" />
+
+        <View
+            android:background="@color/line_v"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"/>
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/messageView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/messageTxt"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            tools:text="确定要拨打客户电话\n400-400-1111"
+            android:textColor="@color/color_FF212121"
+            android:textSize="16sp"
+            android:layout_width="match_parent"
+            android:paddingTop="25dp"
+            android:paddingBottom="25dp"
+            android:gravity="center"
+            android:layout_height="wrap_content" />
+    </FrameLayout>
+
+    <View
+        android:background="@color/line_v"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/leftBtn"
+            android:layout_weight="1"
+            tools:text="取消"
+            android:background="@color/transparent"
+            android:textColor="@color/color_007AFF"
+            android:textSize="16sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <View
+            android:id="@+id/vlineDivide"
+            android:background="@color/line_v"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"/>
+
+        <Button
+            android:id="@+id/rightBtn"
+            tools:text="确定"
+            android:layout_weight="1"
+            android:background="@color/transparent"
+            android:textColor="@color/color_007AFF"
+            android:textSize="16sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+</LinearLayout>

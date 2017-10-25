@@ -1,6 +1,4 @@
 apply plugin: 'com.android.application'
-//apply plugin: 'walle'
-//apply plugin: 'com.jakewharton.butterknife'
 
 repositories {
     maven { url "https://jitpack.io" }
@@ -65,37 +63,21 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
+        exclude group: 'com.google.code.findbugs', module: 'jsr305'
     })
     compile 'com.android.support:appcompat-v7:25.1.0'
-    compile 'com.android.support:recyclerview-v7:25.1.0'
     compile "com.android.support:cardview-v7:25.1.0"
-    //compile 'com.android.support:design:25.1.0'
     compile 'com.android.support:multidex:1.0.1'
     testCompile 'junit:junit:4.12'
 
     compile 'com.jakewharton:butterknife:8.5.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
     compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.8'
-    compile 'com.pkmmte.view:circularimageview:1.1'
+    //compile 'com.pkmmte.view:circularimageview:1.1'
 
-    compile project(':FdbFramework')
     compile project(':chatui')
-//    compile project(':map')
-//    compile project(':pay')
-//    compile project(':push')
-//    compile project(':share')
+    compile project(':framework')
 }
-
-//walle {
-//    // 指定渠道包的输出路径
-//    apkOutputFolder = new File("${project.rootDir}/apkChannel/apk");
-//    // 定制渠道包的APK的文件名称
-//    apkFileNameFormat = 'V${versionName}-${channel}.apk';
-//    // 渠道配置文件
-//    channelFile = new File("${project.rootDir}/apkChannel/meituan/channel.txt")
-//
-//    print channelFile
-//}
 
 /**
  * 插入加密文件
@@ -103,7 +85,7 @@ dependencies {
  * @return
  */
 def encryptConfig() {
-    def env = "prod";
+    def env = "beta";
     if(hasProperty("env")) {
         env = getProperty("env");
     }
@@ -111,11 +93,13 @@ def encryptConfig() {
     /**
      * 根据build type 选择config.properties 并copy 文件到assets
      */
-    def profile_config = "config/${env}/config.properties"
+    def profile_config = "config/${env}/${env}.config.properties"
+    def rename_file = "${env}.config.properties"
     task configCopy(type: Copy) {
         copy {
             from(profile_config)
             into('src/main/assets')
+            rename(rename_file, 'config.properties')
         }
     }
 }

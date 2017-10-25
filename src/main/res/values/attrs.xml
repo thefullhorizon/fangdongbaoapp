@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="SwitchBox">
+        <attr name="selectbox_left_title" format="string" />
+        <attr name="selectbox_right_title" format="string" />
+        <attr name="selectbox_background" format="reference" />
+        <attr name="selectbox_textcolor" format="reference" />
+        <attr name="selectbox_pager" format="boolean" />
+    </declare-styleable>
+
+</resources>

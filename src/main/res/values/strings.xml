@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">房东宝</string>
+    <string name="tab1">云平台</string>
+    <string name="tab2">通讯录</string>
+    <string name="tab3">房源</string>
+    <string name="tab4">我的</string>
+</resources>

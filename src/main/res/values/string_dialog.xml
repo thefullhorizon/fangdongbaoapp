@@ -1,0 +1,5 @@
+<resources>
+    <string name="dialog_ok">确定</string>
+    <string name="dialog_cancel">取消</string>
+    <string name="dialog_call">确定要拨打客服电话\n</string>
+</resources>
