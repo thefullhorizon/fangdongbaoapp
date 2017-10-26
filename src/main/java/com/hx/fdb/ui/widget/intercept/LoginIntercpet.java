@@ -39,6 +39,10 @@ public class LoginIntercpet implements Intercept {
     }
 
     public boolean intercept(Activity activity, Fragment fragment, Intent intent) {
+        if(true) {
+            return false;
+        }
+
         UserInfo userInfo = UserInfoUtil.instence().get();
 
         if(userInfo != null && !TextUtils.isEmpty(userInfo.getTicket())) {//已经登录

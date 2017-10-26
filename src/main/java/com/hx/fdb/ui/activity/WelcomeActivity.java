@@ -5,7 +5,7 @@ import android.content.Intent;
 import com.hx.fdb.R;
 import com.hx.fdb.ui.ActivityController;
 import com.hx.fdb.ui.activity.common.MvpActivity;
-import com.hx.fdb.ui.activity.main.MainActivity;
+import com.hx.fdb.ui.activity.user.LoginActivity;
 
 /**
  * Created by yanxin on 17/5/9.
@@ -22,7 +22,7 @@ public class WelcomeActivity extends MvpActivity {
         getHandler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                ActivityController.getInstence().startActivity(WelcomeActivity.this,new Intent(WelcomeActivity.this,MainActivity.class));
+                ActivityController.getInstence().startActivity(WelcomeActivity.this,new Intent(WelcomeActivity.this,LoginActivity.class));
                 finish();
             }
         },1000);

@@ -48,8 +48,9 @@ public class CountdownView extends AppCompatButton implements View.OnClickListen
     public void setInit(boolean first) {
         if(first) setText("获取验证码");
         else setText("重新获取");
-        setBackgroundResource(R.drawable.corner_dcdcdc_white);
-        setTextColor(getResources().getColor(R.color.color_FF666666));
+        setTextSize(14);
+        setBackgroundResource(R.drawable.corner_007aff_white);
+        setTextColor(getResources().getColor(R.color.color_007aff));
         setClickable(true);
         setOnClickListener(this);
     }
@@ -61,7 +62,8 @@ public class CountdownView extends AppCompatButton implements View.OnClickListen
         setClickable(false);
         cancel();
         setText("60秒后可重新获取");
-        setBackgroundResource(R.drawable.corner_dcdcdc_d8d8d8);
+        setTextSize(14);
+        setBackgroundResource(R.drawable.corner_dcdada_white);
         setTextColor(getResources().getColor(R.color.color_FF999999));
         countDownTimer = new CountDownTimer(60*1000,1000) {
             @Override

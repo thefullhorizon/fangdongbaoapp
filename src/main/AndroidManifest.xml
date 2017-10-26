@@ -52,6 +52,10 @@
             android:name=".ui.activity.user.LoginActivity"
             android:screenOrientation="portrait" />
 
+        <activity
+            android:name=".ui.activity.user.IdentifyActivity"
+            android:screenOrientation="portrait" />
+
         <!-- broadcast -->
         <receiver android:name=".receive.LoginoutReceive">
             <intent-filter>
