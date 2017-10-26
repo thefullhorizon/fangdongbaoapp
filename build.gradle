@@ -33,10 +33,10 @@ android {
 
     signingConfigs {
         release {
-            storeFile file("manyi.keystore")
-            storePassword "manyi520"
-            keyAlias "manyi"
-            keyPassword "manyi520"
+            storeFile file("hx.jks")
+            storePassword "hx20171026"
+            keyAlias "hx"
+            keyPassword "hx20171026"
             //v2SigningEnabled false //强制V1签名方式
         }
     }
