@@ -4,15 +4,29 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <com.hx.fdb.ui.widget.CommonTitleBar
-        android:id="@+id/titleBar"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <EditText
+            android:id="@+id/phoneTxt"
+            android:maxLength="11"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp" />
 
-    <EditText
-        android:id="@+id/phoneTxt"
-        android:layout_width="match_parent"
-        android:layout_height="60dp" />
+        <Button
+            android:id="@+id/clearBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/codeBtn"
+            android:text="获取验证码"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
 
     <Button
         android:id="@+id/loginBtn"
