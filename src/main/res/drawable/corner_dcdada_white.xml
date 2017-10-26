@@ -3,6 +3,6 @@
     <solid android:color="@color/white"/>
     <corners android:radius="3dp"/>
     <stroke
-        android:color="@color/title_bar_bg"
-        android:width="0.5dp" />
+        android:color="#dcdada"
+        android:width="1dp" />
 </shape>

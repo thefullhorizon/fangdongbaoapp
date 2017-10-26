@@ -28,8 +28,6 @@ public class LoginActivity extends MvpActivity<LoginPresenter> implements LoginV
 
     @Override
     public void initView() {
-        titleBar.setTitle("登录");
-        titleBar.setLeftBtnVisible(View.GONE);
     }
 
     @OnClick(R.id.loginBtn)
